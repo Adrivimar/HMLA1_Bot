@@ -1,5 +1,5 @@
 <?php
-$token = '1927984192:AAHCuuVu7cJ02H0H3XJw1AlcLmE2ONL-iCU';
+$token = 'TOKENID';
 $website = 'https://api.telegram.org/bot'.$token;
 
 $input = file_get_contents('php://input');
@@ -19,7 +19,9 @@ switch($message) {
         break;
     
     case '/license':
-        $response = 'GNU General Public License'
+        $response = '**GNU General Public License.**
+⬇️⬇️⬇️
+Ver código: https://github.com/horacio507/HMLA_Bot';
         sendMessage($chatId, $response);
         break;
 }
