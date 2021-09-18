@@ -19,9 +19,14 @@ switch($message) {
         break;
     
     case '/license':
-        $response = '**GNU General Public License.**
+        $response = '<b>GNU General Public License.</b>
 ⬇️⬇️⬇️
 Ver código: https://github.com/horacio507/HMLA_Bot';
+        sendMessage($chatId, $response);
+        break;
+
+    case '/help':
+        $response = '<b>PRUEBA</b>';
         sendMessage($chatId, $response);
         break;
 
