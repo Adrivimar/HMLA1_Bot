@@ -26,7 +26,9 @@ Ver código: https://github.com/horacio507/HMLA_Bot';
         break;
 
     case '/help':
-        $response = '<b>PRUEBA</b>';
+        $response = '<b>Aquí están todos los comandos del bot</b>'."\n\n"."<b>Multimedia</b>"."\n"."/noticias - Ver las últimas 10 noticias de elJuande.com"
+        ."\n\n"."<b>Sobre el bot</b>"."\n"."/info - Quién ha creado este bot"
+        ."\n"."/license - Ver la licencia de Copyright y consultar el código del bot";
         sendMessage($chatId, $response);
         break;
 
