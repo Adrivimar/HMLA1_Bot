@@ -1,5 +1,5 @@
 <?php
-$token = 'TOKENID';
+$token = 'TOKENIND';
 $website = 'https://api.telegram.org/bot'.$token;
 
 $input = file_get_contents('php://input');
@@ -13,6 +13,17 @@ switch($message) {
         $response = '¡Hola! Soy el bot que te ayudará a organizarte :)';
         sendMessage($chatId, $response);
         break;
+
+    case '/deberes':
+        $response = '<b>Deberes para la semana del 20-24 de Septiembre</b>'."\n\n"
+        ."<b>Biología y Geología</b>"."\n\n"."Ficha"
+        ."\n\n"."<b>Geografía e Historia</b>"."\n\n"."Ficha de aules"
+        ."\n\n"."<b>Valenciano</b>"."\n\n"."(pàg: 13) nº 12, 13, 14, 15, 16, 17 i 19"
+        ."\n\n"."<b>Inglés</b>"."\n\n"."(pág: 4) nº 2 y 3"
+        ."\n\n"."<b>Próximo/s</b>";
+        sendMessage($chatId, $response);
+        break;
+
     case '/info':
         $response = '¡Hola! Soy @HMLA_bot. Mi creador es @horacio507';
         sendMessage($chatId, $response);
@@ -26,7 +37,7 @@ Ver código: https://github.com/horacio507/HMLA_Bot';
         break;
 
     case '/help':
-        $response = '<b>Aquí están todos los comandos del bot</b>'."\n\n"."<b>Multimedia</b>"."\n"."/noticias - Ver las últimas 10 noticias de elJuande.com"
+        $response = '<b>Aquí están todos los comandos del bot</b>'."\n\n"."<b>Multimedia</b>"."\n"."/deberes - Deberes mandados en clase"."\n"."/noticias - Ver las últimas 10 noticias de elJuande.com"
         ."\n\n"."<b>Sobre el bot</b>"."\n"."/info - Quién ha creado este bot"
         ."\n"."/license - Ver la licencia de Copyright y consultar el código del bot";
         sendMessage($chatId, $response);
