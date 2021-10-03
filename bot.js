@@ -88,17 +88,10 @@ function sendStartMessage (ctx) {
                 ],
 
                 [
-                    {text: "Sugerencias", callback_data: 'sugerencias'}
-                ],
-
-                [
-                    {text: "Comandos", callback_data: 'comandos'}
-                ],
-
-                
-                [
+                    {text: "Comandos", callback_data: 'comandos'},
                     {text: "Acerca de este bot", callback_data: 'acerca'}
-                ]
+                ],
+
             ]
         }
     })
@@ -111,16 +104,23 @@ function sendStartMessage (ctx) {
 bot.action('menu', ctx => {
     ctx.answerCbQuery(); //para quitar el icono de cargando del botón
     
-    const menuMessage = "Selecciona una opción"
+    const menuMessage = ctx.from.first_name + "," + " seleccione una opción"
     bot.telegram.sendMessage(ctx.chat.id, menuMessage, {
         reply_markup: {
             keyboard: [
                 [
                     { text: "Deberes" },
                     { text: "Horario" },
-                    { text: "Avisos" }
+                    { text: "Asignaturas"}
 
                 ],
+
+                [
+                    { text: "Avisos" },
+                    { text: "Sugerencias"},
+
+                ],
+
                 [
                     { text: "❌"}
                 ]
@@ -163,7 +163,7 @@ function sendDeberesMessage (ctx) {
 
 bot.action('continuar_deberes', ctx => {
     ctx.answerCbQuery(); //para quitar el icono de cargando del botón
-            bot.telegram.sendMessage(ctx.chat.id, "¡Hola @" + ctx.from.username + " en este excel encontras información al respecto" + "\n\n" + "https://docs.google.com/spreadsheets/d/1t4jrx9P34vjBP8sRc69-WFRF8iqJpZYJ12wjYPLYTOA/edit?usp=sharing");
+            bot.telegram.sendMessage(ctx.chat.id, "¡Hola " + ctx.from.first_name + "!" + " En este excel encontras información al respecto" + "\n\n" + "https://docs.google.com/spreadsheets/d/1t4jrx9P34vjBP8sRc69-WFRF8iqJpZYJ12wjYPLYTOA/edit?usp=sharing");
 
             })
 
@@ -190,7 +190,7 @@ function sendAvisosMessage (ctx) {
 bot.action('Continuar_avisos', ctx => {
     ctx.answerCbQuery(); //para quitar el icono de cargando del botón
     
-    const menuMessage = "Selecciona una opción"
+    const menuMessage = ctx.from.first_name + "," + " seleccione una opción"
     bot.telegram.sendMessage(ctx.chat.id, menuMessage, {
         reply_markup: {
             keyboard: [
@@ -235,7 +235,7 @@ bot.hears("Faltas de los profesores", ctx =>{
     })
 })
 
-//Excursiones
+//Excursioneshears
 
 bot.hears("Excursiones", ctx =>{
     bot.telegram.sendMessage(ctx.chat.id, {
@@ -259,7 +259,7 @@ bot.hears("Otros", ctx =>{
 
 bot.command('sugerencias', ctx =>  {
 
-    const menuMessage = "Selecciona una opción " + '@' + ctx.from.username
+    const menuMessage = ctx.from.first_name + "," + " seleccione una opción"
     bot.telegram.sendMessage(ctx.chat.id, menuMessage, {
         reply_markup: {
             keyboard: [
@@ -279,10 +279,9 @@ bot.command('sugerencias', ctx =>  {
     })    
 })
 
-bot.action('sugerencias', ctx => {
-    ctx.answerCbQuery(); //para quitar el icono de cargando del botón
+bot.hears('Sugerencias', ctx => {
 
-    const menuMessage = "Selecciona una opción " + '@' + ctx.from.username
+    const menuMessage = ctx.from.first_name + "," + " seleccione una opción"
     bot.telegram.sendMessage(ctx.chat.id, menuMessage, {
         reply_markup: {
             keyboard: [
@@ -309,12 +308,160 @@ bot.hears("Sobre la clase", ctx => {
     + "\n" + "https://forms.gle/CpfsoKEgzNFjNm8L9" + "\n\n" + "¡Gracias por tus sugerencias!")
 })
 
+//Sobre el bot
+
 bot.hears("Sobre el bot", ctx => {
     bot.telegram.sendMessage(ctx.chat.id, "Si tienes alguna sugerencia, te gustaría cambiar algo... Respecto a este bot @HMLA1_BOT. Puedes decirlo aquí." + "\n" + "🔽🔽🔽"
     + "\n" + "https://forms.gle/w2AT5Bgoej1SNevC9" + "\n\n" + "¡Gracias por tus sugerencias!")
 })
 
-//Acerca de mi
+//Asignaturas
+
+bot.command('Asignaturas', ctx => {
+
+    const menuMessage = ctx.from.first_name + "," + " seleccione una opción"
+    bot.telegram.sendMessage(ctx.chat.id, menuMessage, {
+        reply_markup: {
+            keyboard: [
+                [
+                    { text: "Matemáticas" },
+                    { text: "Castellano" }
+                ],
+
+                [
+                    { text: "Física y Química" },
+                    { text: "Educación Física" }
+                ],
+
+                [
+                    { text: "Biología y Geología"},
+                    { text: "Valenciano" }
+                ],
+
+                [
+                    { text: "Geografía e Historia" },
+                    { text: "Inglés" }
+                ],
+
+                [
+                    { text: "Valores Éticos" },
+                    { text: "Religión"}
+                ],
+
+                [
+                    { text: "❌"}
+                ]
+    
+            ],
+            resize_keyboard: true,
+            one_time_keyboard: true
+        }
+    })
+})
+
+bot.hears('Asignaturas', ctx => {
+
+    const menuMessage = ctx.from.first_name + "," + " seleccione una opción"
+    bot.telegram.sendMessage(ctx.chat.id, menuMessage, {
+        reply_markup: {
+            keyboard: [
+                [
+                    { text: "Matemáticas" },
+                    { text: "Castellano" }
+                ],
+
+                [
+                    { text: "Física y Química" },
+                    { text: "Educación Física" }
+                ],
+
+                [
+                    { text: "Biología y Geología"},
+                    { text: "Valenciano" }
+                ],
+
+                [
+                    { text: "Geografía e Historia" },
+                    { text: "Inglés" }
+                ],
+
+                [
+                    { text: "Valores Éticos" },
+                    { text: "Religión"}
+                ],
+
+                [
+                    { text: "❌"}
+                ]
+    
+            ],
+            resize_keyboard: true,
+            one_time_keyboard: true
+        }
+    })
+})
+
+//Matemáticas
+
+bot.hears('Matemáticas', ctx => {
+    bot.telegram.sendMessage(ctx.chat.id, "Nombre: Unknow" + "\n" + "Email: Unknow")
+})
+
+//Castellano
+
+bot.hears('Castellano', ctx => {
+    bot.telegram.sendMessage(ctx.chat.id, "Nombre: Unknow" + "\n" + "Email: Unknow")
+})
+
+//Física y Química
+
+bot.hears('Física y Química', ctx => {
+    bot.telegram.sendMessage(ctx.chat.id, "Nombre: Unknow" + "\n" + "Email: Unknow")
+})
+
+//Educación Física
+
+bot.hears('Educación Física', ctx => {
+    bot.telegram.sendMessage(ctx.chat.id, "Nombre: Unknow" + "\n" + "Email: Unknow")
+})
+
+//Biología y Geología
+
+bot.hears('Biología y Geología', ctx => {
+    bot.telegram.sendMessage(ctx.chat.id, "Nombre: Unknow" + "\n" + "Email: Unknow")
+})
+
+//Valenciano
+
+bot.hears('Valenciano', ctx => {
+    bot.telegram.sendMessage(ctx.chat.id, "Nombre: Unknow" + "\n" + "Email: Unknow")
+})
+
+//Geografía e Historia
+
+bot.hears('Geografía e Historia', ctx => {
+    bot.telegram.sendMessage(ctx.chat.id, "Nombre: Unknow" + "\n" + "Email: Unknow")
+})
+
+//Inglés
+
+bot.hears('Inglés', ctx => {
+    bot.telegram.sendMessage(ctx.chat.id, "Nombre: Unknow" + "\n" + "Email: Unknow")
+})
+
+//Valores Éticos
+
+bot.hears('Valores Éticos', ctx => {
+    bot.telegram.sendMessage(ctx.chat.id, "Nombre: Unknow" + "\n" + "Email: Unknow")
+})
+
+//Religión
+
+bot.hears('Religión', ctx => {
+    bot.telegram.sendMessage(ctx.chat.id, "Nombre: Unknow" + "\n" + "Email: Unknow")
+})
+
+//Acerca del bot
 
 bot.action('acerca', ctx => {
     ctx.answerCbQuery(); //para quitar el icono de cargando del botón
