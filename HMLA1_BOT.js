@@ -72,9 +72,36 @@ bot.command('horario', ctx => {
 //Reportar Errores
 
 bot.command('report@HMLA1_BOT', ctx => {
-    bot.telegram.sendMessage(ctx.chat.id, "Si has encontrado algún error con el bot, ya sea ortográfico, información incorrecta... No dudes en contactar con @horacio507 o contestar a este formulario (https://forms.gle/w2AT5Bgoej1SNevC9)")
+    sendReportMessage(ctx);
 })
 
+bot.command('reportar', ctx => {
+    sendReportMessage(ctx);
+})
+
+function sendReportMessage (ctx) {
+
+    const reportMessage = "REPORTAR ERRORES" + "\n\n" + "Si has encontrado algún error con el bot, ya sea ortográfico, información incorrecta..." + "\n\n" + "No dudes en contactar con @horacio507 o contestar a este formulario (https://forms.gle/w2AT5Bgoej1SNevC9)" + "\n\n" + "¡Gracias!"
+
+    bot.telegram.sendMessage(ctx.chat.id, reportMessage, {
+        reply_markup: {
+            inline_keyboard: [
+
+                [
+                    { text: "Lista de contribuciones", callback_data: "lista_contribuciones"}
+                ]
+
+            ]
+        }
+    })
+}
+
+bot.action('lista_contribuciones', ctx => {
+    ctx.answerCbQuery(); //para quitar el icono de cargando del botón
+            bot.telegram.sendMessage(ctx.chat.id, "¡Hola " + ctx.from.first_name + "!" + "\n" + "Si has contribuido de alguna manera a este bot, ya sea añadiendo los deberes, reportando errores, escribiendo sugerencias... Tu nombre aparecerá en esta lista junto a tus contribuciones" 
+            + "\n\n" + "PD: Aquellos y aquellas que ayuden con el bot se les recompensará ;)" + "\n\n" + "LISTA DE CONTRIBUCIONES" + "\n\n" + "-Sin datos-");
+
+})
 
 //Bienvenida (/start)
 
