@@ -69,6 +69,13 @@ bot.command('horario', ctx => {
     ctx.telegram.sendPhoto(id_chat, photo, {caption: "Recuerda que los viernes entramos a las 15:00 y no a las 14:45"});
 });
 
+//Reportar Errores
+
+bot.command('report@HMLA1_BOT', ctx => {
+    bot.telegram.sendMessage(ctx.chat.id, "Si has encontrado algún error con el bot, ya sea ortográfico, información incorrecta... No dudes en contactar con @horacio507 o contestar a este formulario (https://forms.gle/w2AT5Bgoej1SNevC9)")
+})
+
+
 //Bienvenida (/start)
 
 function sendStartMessage (ctx) {
@@ -218,15 +225,7 @@ bot.action('Continuar_avisos', ctx => {
 //Resumen de los avisos
 
 bot.hears("Resumen de los avisos", ctx =>{
-    bot.telegram.sendMessage(ctx.chat.id, "1. Viaje a la Nieve 2021" + "\n\n" + "Distinguidos padres y madres:" + "\n" +
-    "Nos dirijimos a vosotros para informaros sobre el viaje que realizaremos a la nieve el próximo mes de diciembre de 2021. El objetivo del mismo es dar la oportunidad a vuestr@s hij@s de probar un deporte nuevo y de vivir una experiencia inolvidable junto a sus compañer@s. " +
-    "\n" + "En el siguiente enlace tenéis toda la información en la primera página, y la ficha de inscripción en la segunda" + "\n\n" + "Para cualquier duda acerca de este viaje podéis poneros en contacto con el profesorado responsable del viaje:" +
-    "\n" + "Joaqín Casillas joaquin.casillas@juandegaray.es" + "\n" + "Mila Díaz mila.diaz@juandegaray.es" + "\n\n" + "Saludos" + "\n\n" + "Más información: https://drive.google.com/file/d/1C0O4w8tdd8rbpFAhBwI3-D4Ql2qB9edy/view" + "\n\n" + "Fecha de publiación: 27/08/2021" +
-    "\n\n" + "2. AMPA Informa: mercadillo libros lectura se postpone a martes 5 de octubre" + "\n\n" + 
-    "El mercadillo de libros de lectura, anunciado inicialmente para el próximo jueves día 30 de septiembre, se postpone y se realizará:" +
-     "\n" + "- Día: martes 05 de octubre" + "\n" + "- Hora: de 17:15 a 18:15h" + "\n" + "- Lugar: jardín del IES " + "\n" + 
-     "Os recordamos que se podrán intercambiar o vender los libros de lectura de 1º de ESO a 2º de Bachillerato " +
-     "Próximamente se publicarán los libros de lectura recomendados por los departamentos" + "\n\n" + "Fecha de publicación: 27/09/2021", {
+    bot.telegram.sendMessage(ctx.chat.id, {
         reply_markup: {
             remove_keyboard: true,
         }
@@ -246,10 +245,7 @@ bot.hears("Faltas de los profesores", ctx =>{
 //Excursioneshears
 
 bot.hears("Excursiones", ctx =>{
-    bot.telegram.sendMessage(ctx.chat.id, "1. Viaje a la Nieve 2021" + "\n\n" + "Distinguidos padres y madres:" + "\n" +
-    "Nos dirijimos a vosotros para informaros sobre el viaje que realizaremos a la nieve el próximo mes de diciembre de 2021. El objetivo del mismo es dar la oportunidad a vuestr@s hij@s de probar un deporte nuevo y de vivir una experiencia inolvidable junto a sus compañer@s. " +
-    "\n" + "En el siguiente enlace tenéis toda la información en la primera página, y la ficha de inscripción en la segunda" + "\n\n" + "Para cualquier duda acerca de este viaje podéis poneros en contacto con el profesorado responsable del viaje:" +
-    "\n" + "Joaqín Casillas joaquin.casillas@juandegaray.es" + "\n" + "Mila Díaz mila.diaz@juandegaray.es" + "\n\n" + "Saludos" + "\n\n" + "Más información: https://drive.google.com/file/d/1C0O4w8tdd8rbpFAhBwI3-D4Ql2qB9edy/view" + "\n\n" + "Fecha de publiación: 27/08/2021", {
+    bot.telegram.sendMessage(ctx.chat.id, {
         reply_markup: {
             remove_keyboard: true,
         }
@@ -259,11 +255,7 @@ bot.hears("Excursiones", ctx =>{
 //Otros
 
 bot.hears("Otros", ctx =>{
-    bot.telegram.sendMessage(ctx.chat.id, "1. AMPA Informa: mercadillo libros lectura se postpone a martes 5 de octubre" + "\n\n" + 
-    "El mercadillo de libros de lectura, anunciado inicialmente para el próximo jueves día 30 de septiembre, se postpone y se realizará:" +
-     "\n" + "- Día: martes 05 de octubre" + "\n" + "- Hora: de 17:15 a 18:15h" + "\n" + "- Lugar: jardín del IES" + "\n" + 
-     "Os recordamos que se podrán intercambiar o vender los libros de lectura de 1º de ESO a 2º de Bachillerato " +
-     "Próximamente se publicarán los libros de lectura recomendados por los departamentos" + "\n\n" + "Fecha de publicación: 27/09/2021", {
+    bot.telegram.sendMessage(ctx.chat.id, {
         reply_markup: {
             remove_keyboard: true,
         }
