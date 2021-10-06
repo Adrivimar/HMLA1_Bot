@@ -235,8 +235,12 @@ bot.action('Continuar_avisos', ctx => {
 
                 [    
                     { text: "Excursiones" },
-                    { text: "Otros" }
+                    { text: "Días Festivos"}
                 ],    
+
+                [
+                    { text: "Otros"}
+                ],
 
                 [
                     { text: "❌"}
@@ -277,6 +281,19 @@ bot.hears("Excursiones", ctx =>{
             remove_keyboard: true,
         }
     })
+})
+
+//Días Festivos
+
+bot.hears("Días Festivos", ctx => {
+    bot.telegram.sendMessage(ctx.chat.id, "DÍAS FESTIVOS CURSO ESCOLAR (ESO) 2021-2022" + "\n\n" + "1.- INICIO Y FIN DE CURSO:" + "\n" + "En Educación Secundaria Obligatoria se iniciarán el 8 de septiembre de 2021 y finalizarán el 17 de junio de 2022." 
+    + "\n\n" + "2.- VACACIONES:" + "\n" + "Los períodos de vacaciones del curso 2021-2022 serán los siguientes:" + "\n" + "1.- Vacaciones de Navidad: desde el 23 de diciembre de 2021 al 7 de enero de 2022"
+    + "\n" + "2. Vacaciones de Pascua: del 14 al 25 de abril de 2022, ambos inclusive." + "\n\n" + "3.- DÍAS FESTIVOS:" + "\n" + "Durante este curso escolar serán festivos los días siguientes:" + "\n"
+    + "12 de octubre, Fiesta Nacional de España." + "\n"
+    + "1 de noviembre, Fiesta de todos los Santos." + "\n"
+    + "6 de diciembre, Dia de la Constitución." + "\n"
+    + "8 de diciembre, Día de la Inmaculada Concepción." + "\n"
+    + "24 de junio San Juan." + "\n\n" + "Fuente: https://www.gva.es/es/inicio/procedimientos?id_proc=18742")
 })
 
 //Otros
