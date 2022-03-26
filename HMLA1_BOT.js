@@ -2007,6 +2007,7 @@ bot.command('info@HMLA1_BOT', ctx => {
     + '\n\n' + 'Creador: @horacio507' + '\n' + 'Versión del bot: ' + version + "\n\n" + "☕ PayPal: paypal.me/HMLA1");
 })
 
+
 //Comandos
 
 bot.action('comandos', ctx => {
