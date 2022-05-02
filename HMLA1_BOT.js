@@ -661,7 +661,7 @@ bot.hears('Asignaturas', ctx => {
 
                 [
                     { text: "Geografía e Historia" },
-                    { text: "Inglés" }
+                    { text: "Inlés" }
                 ],
 
                 [
