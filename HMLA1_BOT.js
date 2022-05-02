@@ -66,7 +66,7 @@ bot.hears(['¿Había deberes?', 'Había deberes?', '¿había deberes?', 'había 
     sendDeberesMessage(ctx);
 })
 
-bot.hears(["Han mandado algo?", "¿Han mandado algo?", "han mandado algo?", "Qué han mandado?", "¿Qué han mandado?", "qué han mandado?", "¿qué han mandado?"], ctx => {
+bot.hears(["Han mandado algo?", "¿Han mandado algo?", "que hay de nuevo?", "Qué han mandado?", "¿Qué han mandado?", "qué han mandado?", "¿qué han mandado?"], ctx => {
     sendDeberesMessage(ctx);
 })
 
